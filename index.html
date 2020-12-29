@@ -101,19 +101,54 @@
 				position: fixed;
     			z-index: 2;
 			}
-            @media screen and (min-width: 901px) {
-                #bg-mockup {
-                    height: 13.440833rem;
-                    top: 5.472222rem;
-                }
+            #bg-icon-1 {
+                height: 1.222222rem;
+                width: 1.222222rem;
+                margin-left: 7.416666rem;
+                position: fixed;
+                z-index: 4;
+            }
+            #bg-icon-2 {
+                height: 1.388888rem;
+                width: 1.388888rem;
+                margin-left: 7.777777rem;
+                position: fixed;
+                z-index: 4;
+            }
+            #bg-icon-2 {
+                height: 1.555555rem;
+                width: 1.555555rem;
+                margin-left: 0.75rem;
+                position: fixed;
+                z-index: 4;
             }
             @media screen and (max-width: 900px) {
                 #bg-mockup {
                     height: 12.416666rem;
                     top: 4.527777rem;
                 }
+                #bg-icon-1 {
+                    top: 3.694444rem;
+                }
+                #bg-icon-2 {
+                    top: 7.777777rem;
+                }
+                #bg-icon-2 {
+                    top: 4.722222rem;
+                }
             }
-            
+            @media screen and (min-width: 901px) {
+                #bg-mockup {
+                    height: 13.440833rem;
+                    top: 5.472222rem;
+                }
+                #bg-icon-1 {
+                    top: 5.638888rem;
+                }
+                #bg-icon-2 {
+                    top: 6.666666rem;
+                }
+            }
 			
 			#main {
 				text-align: center;
@@ -211,7 +246,15 @@
 				return "callercolor://com.caller.phone.app/openwith";
 			}
 			function getDownloadAppUrl () {
-				return "https://ad.toutiao.com/advertiser_package/dl/fe9603b9_1665365023329288_1603866346070";
+                let query = window.location.search.substring(1);
+                let vars = query.split("&");
+                for (let i=0; i < vars.length; i++) {
+                    let pair = vars[i].split("=");
+                    if (pair[0] == "w") {
+                        return window.atob(pair[1]);
+                    }
+                }
+                return(false);
 			}
 			
 			function iframeJump () {
@@ -250,6 +293,9 @@
 			<div id="bg-mockup-p">
                 <img alt="bg-mokup" src="./img/bg/bg_mockup.png" id="bg-mockup"/>
             </div>
+            <img  alt="bg-icon-1" src="./img/bg/icon_1.png" id="bg-icon-1"/>
+            <img  alt="bg-icon-2" src="./img/bg/icon_2.png" id="bg-icon-2"/>
+            <img  alt="bg-icon-3" src="./img/bg/icon_3.png" id="bg-icon-3"/>
 		</div>
 		<div id="main" >	
 			<div id="app-info">
